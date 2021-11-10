@@ -21,7 +21,6 @@ namespace eCommerceStarterCode.Controllers
         {
             _context = context;
         }
-        
         [HttpGet]
         public IActionResult GetAllProducts()
         {
@@ -29,12 +28,12 @@ namespace eCommerceStarterCode.Controllers
             return Ok(products);
         }
 
-        
         [HttpPost, Authorize]
         public IActionResult Post([FromBody] Product product)
         {
             _context.Products.Add(product);
             _context.SaveChanges();
+            //return StatusCode(201, value);
             return Ok(product);
         }
 
